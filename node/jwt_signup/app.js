@@ -3,10 +3,10 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let db = require('./db');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-let signup = require('./routes/login');
 
 let app = express();
 
@@ -38,5 +38,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
